@@ -31,3 +31,16 @@ Webブラウザーでコメントを投稿するWebアプリケーションの�
 2. 以下の手順でインストールする::
 
     (venv) $ pip install -e .
+
+依存ライブラリ変更時
+--------------------
+1. ``setup.py`` の ``install_requires`` を更新する
+2. 以下の手順で環境を更新する::
+
+    (venv) $ deactivate
+    $ python3.10 -m venv --clear venv
+    $ source venv/bin/activate
+    (venv) $ pip install -e ./norilog
+    (venv) $ pip freeze > requirements.txt
+
+3. setup.pyとrequirements.txtをリポジトリーにコミットする
